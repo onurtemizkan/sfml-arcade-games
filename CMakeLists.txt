@@ -3,7 +3,7 @@ project(SFML_Games)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES Arkanoid.cpp Snake.cpp Snake.h)
+set(SOURCE_FILES Arkanoid.cpp Snake.cpp Pong.cpp)
 add_executable(SFML_Games ${SOURCE_FILES})
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")

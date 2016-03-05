@@ -113,6 +113,10 @@ void hitBrick(vector<Brick>& mBricks, Ball& mBall) {
 }
 
 int main() {
+
+    /*
+     * Initializations
+     * */
     Ball ball{windowWidth/2, windowHeight/2};
     Paddle paddle{windowWidth/2, windowHeight - 50};
 
@@ -127,6 +131,10 @@ int main() {
     RenderWindow window{{windowWidth, windowHeight}, "Arkanoid Game"};
     window.setFramerateLimit(frameRateLimit);
 
+
+    /*
+     * Game Loop
+     * */
     while(true) {
         window.clear(Color::Black);
 
