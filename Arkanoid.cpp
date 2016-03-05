@@ -107,6 +107,7 @@ void hitBrick(vector<Brick>& mBricks, Ball& mBall) {
     for(Brick& brick : mBricks) {
         if (isIntersecting(brick, mBall) && !brick.destroyed) {
             brick.destroyed = true;
+            mBall.velocity.y = -mBall.velocity.y;
         }
     }
 }
@@ -122,7 +123,6 @@ int main() {
             bricks.emplace_back((iX + 1) * (blockWidth + 3) + 22, (iY + 2) * (blockHeight + 3));
         }
     }
-
 
     RenderWindow window{{windowWidth, windowHeight}, "Arkanoid Game"};
     window.setFramerateLimit(frameRateLimit);
