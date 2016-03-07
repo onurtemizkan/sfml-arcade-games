@@ -109,6 +109,8 @@ void hitBrick(vector<Brick>& mBricks, Ball& mBall) {
         if (isIntersecting(brick, mBall) && !brick.destroyed) {
             brick.destroyed = true;
             mBall.velocity.y = -mBall.velocity.y;
+            if(mBall.x() < brick.x()) mBall.velocity.x = -ballVelocity;
+            else mBall.velocity.x = ballVelocity;
         }
     }
 }
