@@ -7,9 +7,15 @@
 
 using namespace std;
 
+constexpr int frameRateLimit{60};
+constexpr int windowWidth{800}, windowHeight{600} ;
+
 int main() {
+    RenderWindow window{{windowWidth, windowHeight}, "Hola"};
+    window.setFramerateLimit(frameRateLimit);
+
 //    Pong pong;
-//    pong.start();
+//    pong.start(window);
     Arkanoid arkanoid;
-    arkanoid.start();
+    arkanoid.start(window);
 }

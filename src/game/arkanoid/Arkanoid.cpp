@@ -8,11 +8,9 @@
 using namespace std;
 using namespace sf;
 
-
-
 class Arkanoid {
 public:
-    void start() {
+    void start(RenderWindow& window) {
         Ball ball{windowWidth/2, windowHeight/2};
         Paddle paddle{windowWidth/2, windowHeight - 50};
 
@@ -23,11 +21,6 @@ public:
                 bricks.emplace_back((iX + 1) * (blockWidth + 3) + 22, (iY + 2) * (blockHeight + 3));
             }
         }
-
-        RenderWindow window{{windowWidth, windowHeight}, "Arkanoid Game"};
-        window.setFramerateLimit(frameRateLimit);
-
-
         /*
          * Game Loop
          * */
@@ -58,7 +51,6 @@ protected:
     static constexpr float paddleWidth{60.f}, paddleHeight{20.f}, paddleVelocity{6.f};
     static constexpr float blockWidth{60.f}, blockHeight{20.f};
     static constexpr int countBlocksX{11}, countBlocksY{4};
-    static constexpr int frameRateLimit{60};
 
     struct Brick {
         RectangleShape shape;
@@ -143,7 +135,6 @@ protected:
         if(!isIntersecting(mPaddle, mBall)) return;
 
         mBall.velocity.y = -ballVelocity;
-
         if(mBall.x() < mPaddle.x()) mBall.velocity.x = -ballVelocity;
         else mBall.velocity.x = ballVelocity;
     }
@@ -153,8 +144,6 @@ protected:
             if (isIntersecting(brick, mBall) && !brick.destroyed) {
                 brick.destroyed = true;
                 mBall.velocity.y = -mBall.velocity.y;
-                if(mBall.x() < brick.x()) mBall.velocity.x = -ballVelocity;
-                else mBall.velocity.x = ballVelocity;
             }
         }
     }

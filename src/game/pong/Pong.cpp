@@ -5,23 +5,15 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
-
 using namespace std;
 using namespace sf;
 
-constexpr int windowWidth{800}, windowHeight{600} ;
-constexpr float ballRadius{10.f}, ballVelocity{8.f};
-constexpr float paddleWidth{60.f}, paddleHeight{20.f}, paddleVelocity{7.f};
-constexpr int frameRateLimit{60};
-
 class Pong {
 public:
-    void start() {
+    void start(RenderWindow& window) {
         Ball ball{windowWidth/2, windowHeight/2};
         Paddle paddlePl{windowWidth/2, windowHeight - 50};
         Paddle paddleAi{windowWidth/2, 50};
-        RenderWindow window{{windowWidth, windowHeight}, "Pong Game"};
-        window.setFramerateLimit(frameRateLimit);
 
         /*
          * Game Loop
@@ -43,6 +35,10 @@ public:
     }
 
 protected:
+
+    static constexpr int windowWidth{800}, windowHeight{600};
+    static constexpr float ballRadius{10.f}, ballVelocity{8.f};
+    static constexpr float paddleWidth{60.f}, paddleHeight{20.f}, paddleVelocity{7.f};
 
     struct Ball {
         CircleShape shape;
