@@ -61,7 +61,7 @@ struct Paddle {
         shape.move(velocity);
 
         if(Keyboard::isKeyPressed(Keyboard::Key::Left) && left() > 0) { velocity.x = -paddleVelocity; }
-        else if(Keyboard::isKeyPressed(Keyboard::Key::Right) && right() > 0) { velocity.x = paddleVelocity; }
+        else if(Keyboard::isKeyPressed(Keyboard::Key::Right) && right() < windowWidth) { velocity.x = paddleVelocity; }
         else velocity.x = 0;
     }
 
@@ -80,7 +80,8 @@ struct Paddle {
     float bottom() { return y() + shape.getSize().y / 2.f; }
 };
 
-template<class T1, class T2> bool isIntersecting(T1& mA, T2& mB) {
+template<class T1, class T2>
+bool isIntersecting(T1& mA, T2& mB) {
     return mA.right() >= mB.left() && mA.left() <= mB.right() && mA.bottom() >= mB.top() && mA.top() <= mB.bottom();
 };
 
