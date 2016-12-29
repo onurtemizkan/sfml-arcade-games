@@ -1,7 +1,19 @@
----
 engines:
-  fixme:
+  cppcheck:
     enabled: true
-ratings:
-  paths: []
-exclude_paths: []
+    config:
+      check: all
+      project: compile_commands.json
+      language: c++
+      stds:
+        - c++11
+      platform: unix64
+      defines:
+      - "DEBUG=1"
+      - "__cplusplus"
+      undefines:
+      - "DEBUG"
+      includes:
+      - include/
+      max_configs: 42
+      inconclusive: false
