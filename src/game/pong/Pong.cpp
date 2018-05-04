@@ -1,6 +1,3 @@
-//
-// Created by onur on 07/03/16.
-//
 #include <iostream>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>

@@ -1,6 +1,3 @@
-//
-// Created by onur on 07/03/16.
-//
 #include <iostream>
 #include "game/pong/Pong.cpp"
 #include "game/arkanoid/Arkanoid.cpp"
