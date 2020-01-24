@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+		".env": "shellscript",
+		"*.tpp": "cpp",
+		"vector": "cpp"
+	},
+    "terminal.integrated.shell.windows": "cmd.exe"
+}
